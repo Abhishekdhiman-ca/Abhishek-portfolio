@@ -540,6 +540,7 @@ section {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap; /* Ensure text doesn't overflow */
 }
 
 .about .content ul strong {
@@ -625,6 +626,7 @@ section {
   display: block;
   background: none;
   border-radius: 0;
+  animation: progress-animation 2s ease-in-out forwards;
 }
 
 .about .skills-content .progress .skill {
@@ -651,6 +653,101 @@ section {
   height: 10px;
   transition: 0.9s;
   background-color: #ffb727;
+}
+
+/* Keyframes for progress bar animation */
+@keyframes progress-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress-width);
+  }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+  .about .skills-content .col-lg-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about .image {
+    background-size: contain;
+    min-height: 400px;
+  }
+
+  .about .content ul li,
+  .about .content .count-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 926px) {
+  .about .image {
+    background-size: contain;
+    min-height: 300px;
+  }
+
+  .about .content ul li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about .skills-content .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .about .content ul li,
+  .about .content .count-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about .skills-content .progress {
+    height: 30px;
+  }
+
+  .about .skills-content .progress .skill {
+    font-size: 14px;
+  }
+
+  .about .content h3 {
+    font-size: 20px;
+  }
+
+  .about .content ul li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about .content ul li,
+  .about .content .count-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about .skills-content .progress {
+    height: 30px;
+  }
+
+  .about .skills-content .progress .skill {
+    font-size: 12px;
+  }
+
+  .about .content h3 {
+    font-size: 18px;
+  }
+
+  .about .content ul li {
+    font-size: 12px;
+  }
 }
 
 /*--------------------------------------------------------------
